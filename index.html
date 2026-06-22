@@ -1,62 +1,215 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="https://i.imgur.com/iHEQJsi.png">
-    <title>Projeto Alem da Substancia</title>
-      <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HS8SQFFDZ2"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-HS8SQFFDZ2');
-    </script>
+    <title>Mente em equilíbrio - Saúde Mental</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body id="home">
-    <header class="topo">
-    <div class="logo">Espaço de Apoio e Cuidado Psicológico</div>
-   
-    <nav>
-    <ul>
-        <li><a href="info.html">Informações</a></li>
-        <li><a href="videos.html">Vídeos</a></li>
-        <li><a href="contato.html">Contato</a></li>
-    </ul>
-    </nav>
+<body>
+
+    <header class="navbar">
+        <div class="logo">Mente em equilíbrio</div>
+        <nav>
+            <a href="index.html">Home</a>
+        <a href="informacoes.html">Informações</a>
+        <a href="cuidados.html">Cuidados</a>
+        <a href="sinaisdealerta.html">Sinais de Alerta</a>
+        <a href="contato.html">Contato</a>
+        <a href="videos.html">Vídeos</a>
+        <a href="sobre.html">Sobre</a>
+        <a href="fontesconfiaveis.html">Fontes Confiaveis</a>
+        </nav>
     </header>
-        <main class="conteudo">
-            <h1>Além da Substância</h1>
-            <h2>Conectando Cuidado, Saúde Mental e Esperança em Resende</h2>
+
+    <!-- HERO SECTION (HOME) -->
+    <main class="hero-container" id="home" class="page active">
+       <section class="hero-left">
+            <span class="badge">● PROJETO Mente em equilíbrio</span>
+            <h1>Mente em <br><em>Equilíbrio</em></h1>
+            <p>
+            Pequenas ações ajudam a cuidar da mente e do corpo.
+            Informação, acolhimento e apoio podem fazer a diferença.
+            </p>          
+            <p>Segundo o Ministério da Saúde, a saúde mental não é apenas a ausência de doenças, mas sim um estado de bem-estar onde o indivíduo consegue usar suas próprias habilidades para enfrentar os desafios e o estresse da rotina diária.</p>           
+            <p>Ela é determinada por fatores biológicos, psicológicos e sociais. Isso significa que a realidade socioeconômica, o ambiente e as redes de apoio comunitárias impactam diretamente o nosso equilíbrio emocional. Cuidar da mente é um processo coletivo e um direito fundamental de todos.</p>  
+            
+            <div class="mini-cards">
+                <div class="card-stat card-with-border">
+                    <!-- CORREÇÃO AQUI: Adicionado id="contador" para o JavaScript atualizar -->
+                    <h2 id="contador">0</h2> 
+                    <p>Visitantes Registrados</p>
+                </div>
+                <div class="card-stat card-with-border">
+                    <h2>+Cuidado</h2>
+                    <p>Informação e acolhimento</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="hero-right">
+            <div class="card-border-top"></div>
+            <div class="main-card card-with-border">
+                <img src="img/SaudeMental.png" class="mascote-img">
+                <p class="card-text">Sua mente se fortalece quando você se permite cuidar. <strong>Ative sua calma.</strong></p>
+            </div>
+        </section>
+    </main>
+
+    <!-- SEÇÃO INFORMAÇÕES -->
     
-            <p>O projeto Além da Substância nasce com a missão de fortalecer o acesso à informação sobre saúde mental e desmistificar o tratamento psicológico em nossa comunidade.</p>
+
+    <!-- Seção Cuidados -->
+
     
-            <p>Acreditamos que o cuidado com a mente é um pilar fundamental para uma vida plena. Por isso, utilizamos a tecnologia para levar acolhimento, orientações práticas e suporte visual para a rotina diária de quem busca superação, equilíbrio e bem-estar emocional.</p>
+    <!-- Seção Busca Ajuda-->
 
-            <p>Neste espaço, você encontrará conteúdos educativos, guias de apoio e materiais em vídeo pensados para tornar a jornada do cuidado psicológico mais acessível, transparente e humana.</p>
-        </main>
+    
 
-         <div class="cards">
-            <div class="card">
-            <h3>Você sabia que?</h3>
-            <p>Informações e mais informações.</p>
-            </div>
+    <!-- SEÇÃO CONTATO -->
+    
+    <!-- SEÇÃO VÍDEOS -->
+    
+    <!-- SEÇÃO COMENTÁRIOS -->
 
-            <div class="card">
-            <h3>Duvidas?</h3>
-            <p>Aqui pode ter links para outras coisas e ou eventos.</p>
-            </div>
 
-            <div class="card">
-            <h3>Ideias são bem vindas</h3>
-            <p>Mais coisas para mais cards.</p>
-            </div>
-    </div>
-        </main>
-    <script src="script.js"></script>
+    <!-- Conexão do Front-end com o Back-end em Python -->
+    <script>
+            const API_URL = window.location.hostname === "localhost" ||
+                            window.location.hostname === "127.0.0.1"
+                ? "http://127.0.0.1:5000/api"
+                : "/api";
+
+        // =========================
+        // 🔧 UTILIDADE SEGURA
+        // =========================
+        function exists(selector) {
+            return document.querySelector(selector) !== null;
+        }
+
+        // =========================
+        // 📊 VISITAS (index ou onde tiver #contador)
+        // =========================
+        async function updateVisitCounter() {
+            try {
+                const el = document.getElementById("contador");
+                if (!el) return;
+
+                const response = await fetch(`${API_URL}/visita`);
+                const data = await response.json();
+
+                el.innerText = data.total_visitantes;
+            } catch (error) {
+                console.error("Erro contador:", error);
+            }
+        }
+
+        // =========================
+        // 💬 DEPOIMENTOS (somente página sobre)
+        // =========================
+        async function loadDepoimentos() {
+            try {
+                const mural = document.querySelector(".comments-mural");
+                if (!mural) return;
+
+                const response = await fetch(`${API_URL}/depoimentos`);
+                const depoimentos = await response.json();
+
+                mural.innerHTML = "";
+
+                depoimentos.forEach((depo) => {
+                    const card = document.createElement("div");
+                    card.className = "mural-card";
+                    card.innerHTML = `
+                        <strong>${depo.nome}</strong>
+                        <p>"${depo.texto}"</p>
+                    `;
+                    mural.appendChild(card);
+                });
+
+            } catch (error) {
+                console.error("Erro depoimentos:", error);
+            }
+        }
+
+        // =========================
+        // 📨 ENVIO DE DEPOIMENTO
+        // =========================
+        async function submitDepoimento(event) {
+            event.preventDefault();
+
+            const nomeEl = document.getElementById("comentario-nome");
+            const textoEl = document.getElementById("comentario-texto");
+
+            if (!nomeEl || !textoEl) return;
+
+            const nome = nomeEl.value.trim() || "Anônimo";
+            const texto = textoEl.value.trim();
+
+            if (!texto) return;
+
+            try {
+                await fetch(`${API_URL}/depoimentos`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ nome, texto }),
+                });
+
+                event.target.reset();
+                await loadDepoimentos();
+
+            } catch (error) {
+                console.error("Erro envio:", error);
+            }
+        }
+
+        // =========================
+        // 🎥 VÍDEOS (global)
+        // =========================
+        function initVideos() {
+            document.addEventListener("click", (e) => {
+                const preview = e.target.closest(".video-preview");
+
+                if (preview) {
+                    const url = preview.getAttribute("data-video");
+                    if (url) {
+                        window.open(url, "_blank", "noopener");
+                    }
+                }
+            });
+        }
+
+        // =========================
+        // 🚦 INIT PRINCIPAL
+        // =========================
+        document.addEventListener("DOMContentLoaded", () => {
+
+            // 📊 página index
+            if (exists("#contador")) {
+                updateVisitCounter();
+            }
+
+            // 💬 página sobre
+            if (exists(".comments-mural")) {
+                loadDepoimentos();
+            }
+
+            if (exists(".comment-form")) {
+                document
+                    .querySelector(".comment-form")
+                    .addEventListener("submit", submitDepoimento);
+            }
+
+            // 🎥 vídeos (global)
+            if (exists(".video-preview")) {
+                initVideos();
+            }
+
+        });
+    </script>
+    
 </body>
 </html>
