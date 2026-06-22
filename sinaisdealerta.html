@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mente em equilíbrio - Saúde Mental</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,700;1,400&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <header class="navbar">
@@ -24,35 +27,39 @@
         <a href="fontesconfiaveis.html">Fontes Confiaveis</a>
     </nav>
 </header>
+
+<!-- CONTEÚDO -->
 <section id="sinais-alerta" class="generic-section">
-    
+
     <span class="section-badge">Sinais de Alerta</span>
     <h2 class="section-title">Quando prestar <em>atenção</em></h2>
+
     <p class="section-subtitle">
         Sinais de alerta não são diagnósticos, mas indicam quando algo emocional pode precisar de mais cuidado e apoio.
     </p>
 
     <!-- VÍDEO -->
-<div class="video-single-container">
+    <div class="video-single-container">
 
-    <div class="video-card card-with-border">
-        <div class="video-preview btn-play-trigger"
-             data-video="https://www.youtube.com/embed/OMe7nbzqfHE">
+        <div class="video-card card-with-border">
 
-            <img src="https://img.youtube.com/vi/OMe7nbzqfHE/0.jpg" alt="Capa do Vídeo">
-            <div class="play-icon">▶</div>
+            <div class="video-preview btn-play-trigger"
+                 data-video="https://www.youtube.com/embed/OMe7nbzqfHE">
 
-        </div>
+                <img src="https://img.youtube.com/vi/OMe7nbzqfHE/0.jpg" alt="Capa do Vídeo">
+                <div class="play-icon">▶</div>
 
-        <div class="video-content">
-            <span class="video-tag">Sinais de Alerta</span>
-            <h3>Sinais de alerta na saúde mental</h3>
-            <p>Explicação rápida sobre sinais emocionais importantes.</p>
+            </div>
+
+            <div class="video-content">
+                <span class="video-tag">Sinais de Alerta</span>
+                <h3>Sinais de alerta na saúde mental</h3>
+                <p>Explicação rápida sobre sinais emocionais importantes.</p>
+            </div>
+
         </div>
 
     </div>
-
-</div>
 
     <!-- CARDS -->
     <div class="info-cards-container">
@@ -60,56 +67,61 @@
         <div class="info-card card-with-border">
             <div class="card-tag">Emocionais</div>
             <h3>Sinais emocionais</h3>
-            <p>
-                Tristeza frequente, irritação constante, sensação de vazio,
-                perda de interesse em atividades antes prazerosas.
-            </p>
+            <p>Tristeza frequente, irritação constante, perda de interesse e vazio emocional.</p>
         </div>
 
         <div class="info-card card-with-border">
             <div class="card-tag">Cognitivos</div>
             <h3>Pensamentos e mente</h3>
-            <p>
-                Dificuldade de concentração, pensamentos negativos repetitivos,
-                autocrítica excessiva e confusão mental.
-            </p>
+            <p>Dificuldade de concentração, pensamentos negativos e autocrítica excessiva.</p>
         </div>
 
         <div class="info-card card-with-border">
             <div class="card-tag">Físicos</div>
             <h3>Sinais no corpo</h3>
-            <p>
-                Insônia ou sono excessivo, cansaço constante,
-                mudanças no apetite e dores sem causa médica clara.
-            </p>
+            <p>Insônia, cansaço constante e mudanças no apetite.</p>
         </div>
 
         <div class="info-card card-with-border">
             <div class="card-tag">Atenção</div>
             <h3>Sinais mais intensos</h3>
-            <p>
-                Isolamento social, falas de desesperança,
-                crises frequentes de ansiedade ou sofrimento intenso.
-            </p>
+            <p>Isolamento social e sofrimento emocional intenso.</p>
         </div>
 
         <div class="info-card card-with-border">
             <div class="card-tag">Importante</div>
             <h3>Isso não significa</h3>
-            <p>
-                Esses sinais não significam fraqueza, nem diagnóstico automático.
-                Eles apenas indicam que algo pode precisar de mais atenção.
-            </p>
+            <p>Não é fraqueza nem diagnóstico automático, apenas um sinal de atenção.</p>
         </div>
 
     </div>
+
 </section>
 
-<script> 
+<!-- MODAL DO VÍDEO -->
+<div id="videoModal" class="video-modal">
+    <div class="video-modal-content">
+
+        <span class="video-modal-close">&times;</span>
+
+        <div class="video-responsive-container">
+            <iframe id="videoPlayer"
+                src=""
+                frameborder="0"
+                allow="autoplay; encrypted-media"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+    </div>
+</div>
+
+<!-- SCRIPT -->
+<script>
 function initVideos() {
+
     document.addEventListener("click", (e) => {
         const preview = e.target.closest(".video-preview");
-
         if (!preview) return;
 
         const url = preview.getAttribute("data-video");
@@ -121,13 +133,17 @@ function initVideos() {
         modal.style.display = "flex";
     });
 
-    document.querySelector(".video-modal-close").onclick = () => {
-        const modal = document.getElementById("videoModal");
-        const iframe = document.getElementById("videoPlayer");
+    const closeBtn = document.querySelector(".video-modal-close");
 
-        modal.style.display = "none";
-        iframe.src = "";
-    };
+    if (closeBtn) {
+        closeBtn.onclick = () => {
+            const modal = document.getElementById("videoModal");
+            const iframe = document.getElementById("videoPlayer");
+
+            modal.style.display = "none";
+            iframe.src = "";
+        };
+    }
 
     window.onclick = (e) => {
         const modal = document.getElementById("videoModal");

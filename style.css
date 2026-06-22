@@ -827,7 +827,7 @@ button {
     .comments-container {
         gap: 24px;
     }
-}
+    }
 
     .page {
         display: none;
@@ -838,4 +838,18 @@ button {
     .page.active {
         display: block;
         opacity: 1;
+    }
+
+    .local-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 18px;
+    margin-bottom: 15px;
+
+    transition: transform 0.3s ease;
+    }
+
+    .local-img:hover {
+        transform: scale(1.03);
     }
