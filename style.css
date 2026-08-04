@@ -454,6 +454,91 @@ button {
     color: var(--primary);
 }
 
+.local-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 18px;
+    margin-bottom: 15px;
+    pointer-events: none;
+}
+
+/* -------------------------------------------------------------
+   Dinâmicas
+   ------------------------------------------------------------- */
+
+   .dinamicas-container {
+    width: 100%;
+    max-width: 1100px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.dinamica-card {
+    background: var(--surface);
+    border-radius: 28px;
+    padding: 34px 30px;
+    box-shadow: 0 18px 40px var(--shadow);
+}
+
+.dinamica-card h3 {
+    color: var(--primary);
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+}
+
+.dinamica-desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.clip-stage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 140px;
+}
+
+.bottles-row {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+}
+
+.bottle-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.bottle-label {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.dinamica-msg {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-top: 1rem;
+    min-height: 2.5rem;
+    line-height: 1.6;
+    font-style: italic;
+}
+
+.dinamica-msg.highlight {
+    color: var(--primary);
+    font-style: normal;
+    font-weight: 600;
+}
+
 /* -------------------------------------------------------------
    Video cards
    ------------------------------------------------------------- */
@@ -572,27 +657,21 @@ button {
    Comments and testimonials
    ------------------------------------------------------------- */
 .comments-container {
-    width: calc(100% - 200px);
-    max-width: 1400px;
-    display: grid;
-    grid-template-columns: minmax(280px, 1fr) minmax(320px, 1fr);
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
     gap: 38px;
-    text-align: left;
     margin: 0 auto;
 }
 
 .comment-form-box {
-    width: 70%;
-    max-width: 760px;
-    margin: 0 auto;
+    width: 100%;
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 28px;
     padding: 38px;
     box-shadow: 0 16px 40px var(--shadow);
-    /* centralizar o formulário dentro do container */
-    grid-column: 1 / -1;
-    justify-self: center;
 }
 
 .comment-form-box h3 {
@@ -793,29 +872,23 @@ button {
     }
 }
 
-@media (max-width: 600px) {
-    .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
-    }
-
+@media (max-width: 768px) {
     .navbar nav {
-        width: 100%;
-        justify-content: space-between;
+        display: none;
     }
 
-    .hero-left h1 {
-        font-size: 2.7rem;
+    .hero-container {
+        grid-template-columns: 1fr;
+        padding: 100px 6% 60px;
+        gap: 30px;
     }
 
-    .hero-buttons {
-        flex-direction: column;
-        align-items: stretch;
+    .hero-right {
+        display: none;
     }
 
     .mini-cards {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
     }
 
     .info-cards-container,
@@ -824,32 +897,21 @@ button {
         grid-template-columns: 1fr;
     }
 
+    .contact-card {
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .contact-info {
+        white-space: normal;
+        word-break: break-word;
+    }
+
     .comments-container {
         gap: 24px;
     }
-    }
 
-    .page {
-        display: none;
-        opacity: 0;
-        transition: opacity 0.5s ease;
+    .comment-form-box {
+        padding: 24px;
     }
-
-    .page.active {
-        display: block;
-        opacity: 1;
-    }
-
-    .local-img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 18px;
-    margin-bottom: 15px;
-
-    transition: transform 0.3s ease;
-    }
-
-    .local-img:hover {
-        transform: scale(1.03);
-    }
+}
